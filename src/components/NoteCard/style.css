@@ -1,0 +1,19 @@
+.note-card {
+  background-color: var(--primary);
+  border-radius: 4px;
+  box-shadow: 0 0 4px var(--border);
+  min-height: 8rem;
+  padding: 0.6rem 1rem;
+  width: 100%;
+}
+
+.note-card > div > p {
+  color: var(--text);
+  font-size: 11pt;
+  width: 100%;
+}
+
+.note-card > div > h3 {
+  font-size: 13pt;
+  line-height: 20pt;
+}

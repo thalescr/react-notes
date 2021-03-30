@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# React Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple to-do-list written in React to start learning about this amazing library.
+
+![](screenshot.png)
 
 ## Available Scripts
 

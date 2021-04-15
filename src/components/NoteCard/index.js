@@ -1,6 +1,6 @@
 import './style.css';
 
-export default function NoteCard(props) {
+function NoteCard(props) {
   return (
     <div className="note-card">
       {!props.children &&
@@ -13,3 +13,5 @@ export default function NoteCard(props) {
     </div>
   );
 }
+
+export default NoteCard;

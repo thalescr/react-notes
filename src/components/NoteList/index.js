@@ -3,7 +3,7 @@ import NoteCard from '../NoteCard';
 import NoteForm from '../NoteForm';
 import './style.css';
 
-export default function NoteList() {
+function NoteList() {
 
   const [notes, setNotes] = useState([]);
 
@@ -29,3 +29,5 @@ export default function NoteList() {
     </ul>
   );
 }
+
+export default NoteList;

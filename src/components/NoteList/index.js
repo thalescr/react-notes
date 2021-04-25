@@ -7,13 +7,13 @@ function NoteList() {
 
   const [notes, setNotes] = useState([]);
 
-  const appendNote = function(note) {
-    const newNotes = [note, ...notes];
+  const appendNote = function(title, note) {
+    const newNotes = [{title: title, note: note}, ...notes];
     setNotes(newNotes);
   }
 
   return (
-    <ul>
+    <ul className="notelist">
       <li>
         <NoteCard>
           <NoteForm appendNote={appendNote}></NoteForm>

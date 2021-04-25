@@ -1,0 +1,20 @@
+nav.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.3rem 2rem;
+}
+
+h4.nav__title {
+  font-size: 20pt;
+  line-height: 30pt;
+}
+
+ul.nav__list {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul.nav__list > li {
+  padding: 0 1rem;
+}

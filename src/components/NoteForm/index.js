@@ -1,54 +1,47 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './style.css';
 
-class NoteForm extends React.Component {
+function NoteForm(props) {
+  const [title, setTitle] = useState('');
+  const [note, setNote] = useState('');
 
-  constructor(props) {
-    super(props);
-    this.state = {title: '', note: ''};
+  const titleRef = useRef(null);
+  const noteRef = useRef(null);
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleNoteChange = this.handleNoteChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleTitleChange(event) {
-    this.setState({title: event.target.value});
-  }
-
-  handleNoteChange(event) {
-    this.setState({note: event.target.value})
-  }
-
-  handleSubmit(event) {
+  const handleSubmit = function (event) {
     event.preventDefault();
-    event.stopPropagation();
-
-    this.props.appendNote(this.state);
-
-    this.handleTitleChange({target: {value: ''}});
-    this.handleNoteChange({target: {value: ''}});
+    props.appendNote(title, note);
+    setTitle('');
+    setNote('');
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Título"
-          value={this.state.title}
-          onChange={this.handleTitleChange}
-        />
-        <textarea
-          placeholder="Anotações"
-          rows={2}
-          value={this.state.note}
-          onChange={this.handleNoteChange}>
-        </textarea>
-        <button type="submit">Salvar</button>
-      </form>
-    );
+  const handleTitleChange = function(event) {
+    setTitle(event.target.value);
   }
+
+  const handleNoteChange = function(event) {
+    setNote(event.target.value);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Título"
+        value={title}
+        onChange={handleTitleChange}
+        ref={titleRef}
+      />
+      <textarea
+        placeholder="Anotações"
+        rows={2}
+        value={note}
+        onChange={handleNoteChange}
+        ref={noteRef}>
+      </textarea>
+      <button type="submit">Salvar</button>
+    </form>
+  );
 }
 
 export default NoteForm;
